@@ -7,11 +7,17 @@
 // more than 40 at once, each apple only costs 1! Write a function that calculates
 // the price of an order of apples given the quantity bought. No hints this time!
 
-// I AM NOT DONE
 
+use std::cmp::Ordering;
 // Put your function here!
-// fn calculate_apple_price {
+fn calculate_apple_price(count:i32) -> i32 {
+    let cost = match count.cmp(&40){
+        Ordering::Less | Ordering::Equal => 2,
+        Ordering::Greater => 1,
+    };
 
+    count * cost
+}
 // Don't modify this function!
 #[test]
 fn verify_test() {
